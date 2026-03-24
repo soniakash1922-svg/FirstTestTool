@@ -1,61 +1,173 @@
 :root {
-  --bg-top: #eef8ff;
-  --bg-bottom: #edf6eb;
-  --title: #17264a;
+  --ink: #0d1636;
+  --text: rgba(13, 22, 54, 0.88);
+  --muted: rgba(13, 22, 54, 0.58);
+  --line: rgba(13, 22, 54, 0.1);
+  --panel: rgba(255, 255, 255, 0.66);
+  --panel-strong: rgba(255, 255, 255, 0.8);
+  --shadow: 0 30px 80px rgba(18, 31, 66, 0.14);
   --android: #34d17a;
   --apple: #0f172a;
-  --ring: rgba(23, 38, 74, 0.12);
-  --shadow: 0 30px 80px rgba(33, 58, 92, 0.16);
+  --samsung-a: #0c1232;
+  --samsung-b: #6d6cff;
+  --google-a: #fff3c7;
+  --google-b: #9bc6ff;
+  --motorola-a: #09122c;
+  --motorola-b: #ff5a36;
+  --iphone-a: #f7f2eb;
+  --iphone-b: #d8deef;
+  --ipad-a: #d8f3ff;
+  --ipad-b: #f6f7fb;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
   font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+  color: var(--text);
   background:
-    radial-gradient(circle at 18% 18%, rgba(123, 196, 255, 0.26), transparent 22%),
-    radial-gradient(circle at 82% 82%, rgba(104, 211, 145, 0.22), transparent 24%),
-    linear-gradient(135deg, var(--bg-top), var(--bg-bottom));
-  color: var(--title);
+    radial-gradient(circle at 20% 15%, rgba(123, 196, 255, 0.24), transparent 24%),
+    radial-gradient(circle at 80% 20%, rgba(255, 210, 130, 0.14), transparent 22%),
+    radial-gradient(circle at 50% 80%, rgba(130, 216, 169, 0.18), transparent 28%),
+    linear-gradient(140deg, #eef7ff 0%, #f9fbfd 52%, #eef5ed 100%);
 }
 
-.landing {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 24px;
+a {
+  color: inherit;
 }
 
-.title-stage {
-  width: min(1200px, 100%);
-  min-height: min(78vh, 780px);
-  display: grid;
-  place-items: center;
-  gap: 28px;
-  padding: 48px 32px;
-  border-radius: 42px;
-  background: rgba(255, 255, 255, 0.8);
+.site-shell {
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  padding: 28px;
+}
+
+.hero-panel,
+.story-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  background: var(--panel);
   box-shadow: var(--shadow);
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(20px);
 }
 
-.headline {
+.hero-panel::before,
+.story-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 42%);
+  pointer-events: none;
+}
+
+.home-panel,
+.platform-panel {
+  min-height: calc(100vh - 56px);
+  border-radius: 44px;
+  padding: clamp(28px, 5vw, 64px);
+}
+
+.home-panel {
+  display: grid;
+  align-items: end;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+  gap: clamp(28px, 5vw, 72px);
+}
+
+.platform-panel {
+  display: grid;
+  align-items: center;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(24px, 4vw, 72px);
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+
+.kicker,
+.story-index,
+.feature-kicker,
+.orbital-caption,
+.brand-pill,
+.mini-label {
   margin: 0;
-  text-align: center;
-  font-size: clamp(3.6rem, 12vw, 8.6rem);
-  line-height: 0.95;
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.kicker {
+  color: var(--muted);
+}
+
+.headline-xl {
+  margin: 18px 0 0;
+  font-size: clamp(4.4rem, 12vw, 10rem);
+  line-height: 0.88;
   letter-spacing: -0.08em;
-  color: var(--title);
+  color: var(--ink);
+}
+
+.hero-text {
+  max-width: 540px;
+  margin: 22px 0 0;
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.orbital-stage {
+  position: relative;
+  z-index: 1;
+  min-height: 560px;
+  display: grid;
+  place-items: center;
+}
+
+.ambient-ring {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.85;
+}
+
+.ambient-ring-a {
+  width: min(36vw, 440px);
+  height: min(36vw, 440px);
+  border: 1px solid rgba(13, 22, 54, 0.08);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.04) 64%, transparent 70%);
+}
+
+.ambient-ring-b {
+  width: min(28vw, 340px);
+  height: min(28vw, 340px);
+  border: 1px solid rgba(13, 22, 54, 0.06);
+  background: radial-gradient(circle, rgba(188, 238, 255, 0.28), transparent 70%);
+}
+
+.orbital-caption {
+  position: absolute;
+  bottom: 58px;
+  color: var(--muted);
 }
 
 .split-control {
   position: relative;
-  width: 320px;
-  height: 130px;
+  z-index: 2;
+  width: 360px;
+  height: 160px;
   display: grid;
   place-items: center;
 }
@@ -63,56 +175,45 @@ body {
 .arrow-button,
 .platform-bubble,
 .back-button {
-  width: 88px;
-  height: 88px;
+  width: 92px;
+  height: 92px;
   border-radius: 50%;
-  border: 2px solid var(--ring);
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 18px 36px rgba(23, 38, 74, 0.12);
+  border: 1px solid var(--line);
+  background: var(--panel-strong);
+  box-shadow: 0 22px 44px rgba(13, 22, 54, 0.14);
+}
+
+.arrow-button,
+.platform-bubble {
+  display: grid;
+  place-items: center;
 }
 
 .arrow-button {
   appearance: none;
   -webkit-appearance: none;
-  display: grid;
-  place-items: center;
   padding: 0;
-  color: var(--title);
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.98);
-  transition: transform 220ms ease, opacity 220ms ease, box-shadow 220ms ease;
+  color: var(--ink);
+  transition: transform 240ms ease, opacity 220ms ease, box-shadow 240ms ease;
 }
 
-.back-button {
-  display: grid;
-  place-items: center;
-  color: var(--title);
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.98);
-  transition: transform 220ms ease, box-shadow 220ms ease;
+.arrow-button:hover,
+.back-button:hover,
+.platform-bubble:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 54px rgba(13, 22, 54, 0.18);
 }
 
-.arrow-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 24px 44px rgba(23, 38, 74, 0.16);
+.arrow-button:focus-visible,
+.back-button:focus-visible,
+.platform-bubble:focus-visible {
+  outline: 3px solid rgba(70, 140, 255, 0.28);
+  outline-offset: 5px;
 }
 
-.back-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 24px 44px rgba(23, 38, 74, 0.16);
-}
-
-.arrow-button:focus-visible {
-  outline: 3px solid rgba(74, 144, 226, 0.35);
-  outline-offset: 4px;
-}
-
-.back-button:focus-visible {
-  outline: 3px solid rgba(74, 144, 226, 0.35);
-  outline-offset: 4px;
-}
-
-.arrow-icon {
+.arrow-icon,
+.back-icon {
   width: 42px;
   height: 42px;
   display: block;
@@ -133,19 +234,14 @@ body {
 
 .platform-bubble {
   position: absolute;
-  top: 21px;
+  top: 34px;
   left: 50%;
-  display: grid;
-  place-items: center;
-  padding: 18px;
+  padding: 20px;
   opacity: 0;
-  transform: translate(-50%, 0) scale(0.4);
   pointer-events: auto;
   text-decoration: none;
-  transition:
-    transform 420ms cubic-bezier(0.2, 0.9, 0.2, 1),
-    opacity 240ms ease;
-  cursor: pointer;
+  transform: translate(-50%, 0) scale(0.35);
+  transition: transform 420ms cubic-bezier(0.2, 0.9, 0.2, 1), opacity 240ms ease;
 }
 
 .android-bubble {
@@ -154,7 +250,7 @@ body {
 
 .apple-bubble {
   color: var(--apple);
-  padding: 15px 13px 17px 19px;
+  padding: 16px 14px 18px 20px;
 }
 
 .is-open .arrow-button {
@@ -165,55 +261,395 @@ body {
 
 .is-open .android-bubble {
   opacity: 1;
-  transform: translate(calc(-50% - 72px), 0) scale(1);
+  transform: translate(calc(-50% - 84px), 0) scale(1);
 }
 
 .is-open .apple-bubble {
   opacity: 1;
-  transform: translate(calc(-50% + 72px), 0) scale(1);
+  transform: translate(calc(-50% + 84px), 0) scale(1);
 }
 
-.platform-bubble:focus-visible {
-  outline: 3px solid rgba(74, 144, 226, 0.35);
-  outline-offset: 4px;
+.back-button {
+  position: fixed;
+  top: 28px;
+  left: 28px;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  text-decoration: none;
+  backdrop-filter: blur(20px);
 }
 
-.subpage-shell {
-  min-height: 100vh;
+.hero-mockup-stack {
+  position: relative;
+  min-height: 660px;
+}
+
+.device {
+  position: absolute;
+  border-radius: 34px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  background: rgba(13, 22, 54, 0.1);
+  box-shadow: 0 30px 70px rgba(13, 22, 54, 0.18);
+}
+
+.device-phone {
+  width: clamp(230px, 24vw, 320px);
+  aspect-ratio: 0.52;
+}
+
+.device-tablet {
+  width: clamp(320px, 38vw, 520px);
+  aspect-ratio: 1.28;
+  border-radius: 38px;
+}
+
+.device-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 28px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.device-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.35), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 40%);
+  pointer-events: none;
+}
+
+.device h2,
+.device h3,
+.device p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+.device h2 {
+  margin-top: 16px;
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.device h3 {
+  margin-top: 12px;
+  font-size: 1.8rem;
+  letter-spacing: -0.04em;
+}
+
+.device p {
+  margin-top: 10px;
+  max-width: 18ch;
+  font-size: 0.96rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.brand-pill,
+.mini-label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+}
+
+.samsung-device {
+  top: 26px;
+  right: 40px;
+  transform: rotate(7deg);
+}
+
+.samsung-screen {
+  background:
+    radial-gradient(circle at top left, rgba(164, 153, 255, 0.55), transparent 28%),
+    linear-gradient(180deg, var(--samsung-b), var(--samsung-a));
+  color: #fff;
+}
+
+.google-device {
+  bottom: 12px;
+  left: 0;
+  transform: rotate(-9deg);
+}
+
+.google-screen {
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.75), transparent 22%),
+    linear-gradient(180deg, var(--google-a), var(--google-b) 58%, #3b5ecf 100%);
+  color: #102045;
+}
+
+.google-screen p {
+  color: rgba(16, 32, 69, 0.78);
+}
+
+.google-screen .brand-pill,
+.google-screen .mini-label {
+  background: rgba(255, 255, 255, 0.4);
+  color: rgba(16, 32, 69, 0.88);
+}
+
+.motorola-device {
+  position: relative;
+  width: min(100%, 300px);
+  aspect-ratio: 0.52;
+  top: auto;
+  left: auto;
+}
+
+.motorola-screen {
+  background:
+    radial-gradient(circle at top right, rgba(255, 135, 109, 0.46), transparent 24%),
+    linear-gradient(180deg, var(--motorola-b), var(--motorola-a));
+  color: #fff;
+}
+
+.iphone-device {
+  top: 0;
+  right: 0;
+  transform: rotate(8deg);
+}
+
+.iphone-screen {
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.82), transparent 24%),
+    linear-gradient(180deg, var(--iphone-a), var(--iphone-b));
+  color: #13214c;
+}
+
+.iphone-screen p {
+  color: rgba(19, 33, 76, 0.7);
+}
+
+.iphone-screen .brand-pill,
+.iphone-screen .mini-label,
+.ipad-screen .brand-pill,
+.ipad-screen .mini-label {
+  background: rgba(255, 255, 255, 0.48);
+  color: rgba(19, 33, 76, 0.9);
+}
+
+.ipad-device {
+  bottom: 24px;
+  left: 30px;
+  transform: rotate(-5deg);
+}
+
+.ipad-screen {
+  background:
+    radial-gradient(circle at 18% 15%, rgba(255, 255, 255, 0.7), transparent 22%),
+    linear-gradient(135deg, var(--ipad-a), var(--ipad-b));
+  color: #112243;
+}
+
+.ipad-screen p {
+  max-width: 22ch;
+  color: rgba(17, 34, 67, 0.72);
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 26px;
+}
+
+.story-card {
+  border-radius: 34px;
   padding: 28px;
 }
 
-.blank-stage {
-  min-height: calc(100vh - 56px);
-  border-radius: 42px;
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(18px);
+.wide-card {
+  grid-column: 1 / -1;
 }
 
-.back-icon {
-  width: 42px;
-  height: 42px;
-  display: block;
+.story-copy {
+  max-width: 560px;
+}
+
+.story-index,
+.feature-kicker {
+  color: var(--muted);
+}
+
+.story-card h2 {
+  margin: 16px 0 0;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
+  color: var(--ink);
+}
+
+.story-card p {
+  margin: 16px 0 0;
+  max-width: 52ch;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.device-inline {
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  margin-top: 30px;
+}
+
+.device-row {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 32px;
+  margin-top: 28px;
+}
+
+.device-row > .device {
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  transform: none;
+}
+
+.tablet-row {
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+}
+
+.feature-panel {
+  padding: 28px;
+  border-radius: 28px;
+  border: 1px solid rgba(13, 22, 54, 0.08);
+  background: rgba(255, 255, 255, 0.44);
+}
+
+.light-panel {
+  background: rgba(255, 255, 255, 0.52);
+}
+
+.page-android .hero-panel {
+  background:
+    radial-gradient(circle at right top, rgba(79, 255, 160, 0.18), transparent 28%),
+    radial-gradient(circle at left bottom, rgba(95, 111, 255, 0.14), transparent 26%),
+    var(--panel);
+}
+
+.page-ios .hero-panel {
+  background:
+    radial-gradient(circle at right top, rgba(255, 255, 255, 0.38), transparent 26%),
+    radial-gradient(circle at left bottom, rgba(187, 230, 255, 0.18), transparent 28%),
+    var(--panel);
+}
+
+@media (max-width: 1100px) {
+  .home-panel,
+  .platform-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .orbital-stage,
+  .hero-mockup-stack {
+    min-height: 460px;
+  }
+}
+
+@media (max-width: 900px) {
+  .story-grid,
+  .device-row,
+  .tablet-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-mockup-stack {
+    min-height: 760px;
+  }
+
+  .device-inline,
+  .motorola-device {
+    width: min(100%, 280px);
+  }
 }
 
 @media (max-width: 760px) {
-  .title-stage {
-    min-height: 62vh;
-    padding: 28px 20px;
+  .site-shell {
+    padding: 18px;
+  }
+
+  .home-panel,
+  .platform-panel,
+  .story-card {
     border-radius: 28px;
   }
 
+  .home-panel,
+  .platform-panel {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .orbital-stage {
+    min-height: 360px;
+  }
+
   .split-control {
-    width: 240px;
-    height: 116px;
+    width: 260px;
+    height: 140px;
   }
 
   .is-open .android-bubble {
-    transform: translate(calc(-50% - 52px), 0) scale(1);
+    transform: translate(calc(-50% - 58px), 0) scale(1);
   }
 
   .is-open .apple-bubble {
-    transform: translate(calc(-50% + 52px), 0) scale(1);
+    transform: translate(calc(-50% + 58px), 0) scale(1);
+  }
+
+  .hero-mockup-stack {
+    min-height: 660px;
+  }
+
+  .device-phone,
+  .motorola-device {
+    width: 230px;
+  }
+
+  .device-tablet {
+    width: min(100%, 360px);
+  }
+
+  .samsung-device {
+    right: 0;
+  }
+
+  .google-device,
+  .ipad-device {
+    left: 0;
+  }
+
+  .back-button {
+    top: 18px;
+    left: 18px;
+    width: 72px;
+    height: 72px;
   }
 }

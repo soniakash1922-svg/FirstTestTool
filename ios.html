@@ -6,9 +6,9 @@
     <title>iOS</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
-    <main class="subpage-shell">
-      <a class="back-button" href="./index.html" aria-label="Back to home">
+  <body class="page-ios">
+    <main class="site-shell">
+      <a class="back-button back-floating" href="./index.html" aria-label="Back to home">
         <svg viewBox="0 0 64 64" class="back-icon" focusable="false">
           <circle cx="32" cy="32" r="25" fill="none" stroke="currentColor" stroke-width="5" />
           <path
@@ -21,7 +21,78 @@
           />
         </svg>
       </a>
-      <section class="blank-stage" aria-label="iOS page"></section>
+
+      <section class="hero-panel platform-panel">
+        <div class="hero-copy">
+          <p class="kicker">Apple product staging</p>
+          <h1 class="headline-xl">iOS</h1>
+          <p class="hero-text">
+            Designed with restrained elegance, balanced spacing, and a gallery-like
+            atmosphere that lets the product feel quietly premium.
+          </p>
+        </div>
+
+        <div class="hero-mockup-stack ios-stack">
+          <div class="device device-phone iphone-device">
+            <div class="device-screen iphone-screen">
+              <span class="brand-pill">iPhone</span>
+              <h2>Quiet luxury</h2>
+              <p>Soft depth, refined spacing, and fluid motion pacing.</p>
+            </div>
+          </div>
+
+          <div class="device device-tablet ipad-device">
+            <div class="device-screen ipad-screen">
+              <span class="brand-pill">iPad</span>
+              <h2>Canvas mode</h2>
+              <p>Expansive layouts for richer storytelling and editorial content.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="story-grid ios-grid">
+        <article class="story-card">
+          <div class="story-copy">
+            <p class="story-index">01</p>
+            <h2>iPhone hero composition</h2>
+            <p>
+              This concept focuses on clean hierarchy, soft layered lighting, and
+              understated typography that feels luxurious without becoming cold.
+            </p>
+          </div>
+          <div class="device device-phone iphone-device device-inline">
+            <div class="device-screen iphone-screen">
+              <span class="mini-label">ProMotion</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="story-card wide-card">
+          <div class="story-copy">
+            <p class="story-index">02</p>
+            <h2>iPad immersive workspace</h2>
+            <p>
+              A broader canvas allows bolder image treatment, layered storytelling,
+              and a premium presentation system for content that needs room to breathe.
+            </p>
+          </div>
+          <div class="device-row tablet-row">
+            <div class="device device-tablet ipad-device">
+              <div class="device-screen ipad-screen">
+                <span class="mini-label">Stage Manager</span>
+              </div>
+            </div>
+            <div class="feature-panel light-panel">
+              <p class="feature-kicker">Experience direction</p>
+              <p>
+                Large-scale gallery transitions, immersive showcase blocks, and subtle
+                motion cues that feel closer to a luxury brand site than a standard app page.
+              </p>
+            </div>
+          </div>
+        </article>
+      </section>
     </main>
   </body>
 </html>
