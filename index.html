@@ -35,9 +35,9 @@
           </button>
 
           <div class="platform-bubbles" aria-hidden="true">
-            <button
+            <a
               class="platform-bubble android-bubble"
-              type="button"
+              href="./android.html"
               aria-label="Android"
               data-platform-choice
             >
@@ -65,11 +65,11 @@
                 <circle cx="50" cy="40" r="3.5" fill="#0a2313" />
                 <circle cx="70" cy="40" r="3.5" fill="#0a2313" />
               </svg>
-            </button>
+            </a>
 
-            <button
+            <a
               class="platform-bubble apple-bubble"
-              type="button"
+              href="./ios.html"
               aria-label="iOS"
               data-platform-choice
             >
@@ -79,7 +79,7 @@
                   fill="currentColor"
                 />
               </svg>
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -108,7 +108,7 @@
         clearResetTimer();
         resetTimer = window.setTimeout(() => {
           closeChoices();
-        }, 5000);
+        }, 3000);
       };
 
       trigger?.addEventListener("click", () => {
